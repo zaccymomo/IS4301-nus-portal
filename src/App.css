@@ -7,11 +7,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -28,6 +23,75 @@
   color: #61dafb;
 }
 
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background-color: white;
+}
+
+.navbar-link {
+  padding: 8px 16px;
+  border-bottom: 3px solid transparent;
+  color: #003d7c;
+  text-decoration: none;
+}
+
+.navbar-user {
+  padding: 8px 16px;
+  color: #555;
+}
+
+.navbar-btn {
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.navbar-link:hover {
+  background-color: #e6eef7;
+}
+
+/* NavLink adds the "active" class to the link matching the current URL */
+.navbar-link.active {
+  border-bottom-color: #ef7c00;
+  font-weight: bold;
+}
+
+.academics {
+  padding: 24px 16px;
+}
+
+.module-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.module-table th,
+.module-table td {
+  padding: 10px 16px;
+  border: 1px solid #b8c4d0;
+}
+
+.module-table th {
+  background-color: #003d7c;
+  color: white;
+}
+
+.admissions {
+  padding: 24px 16px;
+}
+
+.admission-timeline {
+  display: inline-block;
+  text-align: left;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +99,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.toast {
+  position: fixed;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  border-radius: 4px;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toast--error {
+  background-color: #c62828;
+}
+
+.toast--success {
+  background-color: #2e7d32;
 }

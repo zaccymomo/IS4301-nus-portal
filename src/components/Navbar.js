@@ -1,6 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth, logout } from '../firebase';
 
 function Navbar() {
+  const [user] = useAuthState(auth);
+
   return (
     <nav className="navbar">
       {/* `end` stops "/" from matching, and staying active on, every other path */}
@@ -13,6 +17,18 @@ function Navbar() {
       <NavLink to="/admission" className="navbar-link">
         Admission
       </NavLink>
+      {user ? (
+        <>
+          <span className="navbar-user">{user.email}</span>
+          <button className="navbar-link navbar-btn" onClick={() => logout()}>
+            Logout
+          </button>
+        </>
+      ) : (
+        <NavLink to="/login" className="navbar-link">
+          Login
+        </NavLink>
+      )}
     </nav>
   );
 }
